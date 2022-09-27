@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mon premier dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/dashboard.css">
+    <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js" charset="utf-8"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>    
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script type="text/javascript">
+    var client_url = '/api/v1/resources/data?id=' + {{client}};
+    </script>
+    
+    <script src="/static/dashboard.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.css">
+  </head>
+
+  <body>
+  
+    <div class="content">
+      <header>
+        <div class="header-background"></div>
+        <div class="title">
+          <h1>
+            Dashboard client n°{{client}}
+          </h1>
+        </div>
+      </header>
+      
+
+
+      <main>
+
+        <div class="detail"></div>
+
+        <div id="detail_text">
+          <text class="detail_text"><a href="/api/v1/resources/data?id={{client}}">Données brutes</a></text>
+        </div>
+    </div>
+
+        <div class="scoring">
+            <div id="text_scoring">
+            <text class="text_scoring"> Score : {{predict}} </text>
+            </div>
+        </div>
+
+        <div class="chartContainer">
+            
+            <div id="actu" class="chart">
+                <div id="graph0">
+                <text class="chartTitle">Graphique 0</text>
+                </div>
+                <div id="graph1">
+                  <text class="chartTitle">Graphique 1</text>
+                  <svg></svg>
+                </div>
+              </div>
+    
+              <div id="meteo" class="chart">
+                <text class="chartTitle">Graphique 2 (Plotly)</text>
+                </div>
+                
+
+        </div>
+
+        <div class="chartContainer">
+
+
+            <div id="grp2" class="chart2">
+                  <div id="graph3">
+
+                  <text class="chartTitle">Graphique 3 (Plotly)</text>
+            </div>
+                  <div id="graph4">
+                    <text class="chartTitle">Graphique 4</text>
+                    <div id="tableauArticles"></div>
+                  </div>
+                </div>
+
+                
+      
+                <div id="graph5" class="chart2">
+
+                  <text class="chartTitle">Graphique 6 (D3 Graph)</text>
+                  <div id="pie1">
+                  <svg viewBox="0 0 400 400"></svg></div>
+
+        </div>
+
+
+
+
+        <!-- </div> -->
+              
+
+            
+
+            <!-- Graphique -->
+
+            <script type="text/javascript">
+              var graphs2 = {{graphJSON2 | safe }};    
+              Plotly.newPlot('graph3', graphs2);
+            </script>
+          
+            <script type="text/javascript">
+              var graphs3 = {{graphJSON3 | safe}};
+              Plotly.newPlot('meteo',graphs3);       
+            </script>
+
+      </main>
+    </div>
+    
+  </body>
+  
+</html>

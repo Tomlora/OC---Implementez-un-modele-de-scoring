@@ -1,0 +1,33 @@
+
+/* General */
+
+/* background : #03152A
+second-color : #0083B9
+third-color : #E693FD 
+text : white */
+
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Move block container higher */
+div.block-container.css-18e3th9.egzxvld2 {
+    margin-top: -5em;
+  }
+  
+
+
+/*center metric label*/
+[data-testid="stMetricLabel"] > div:nth-child(1) {
+  justify-content: center;
+}
+
+/*center metric label*/ 
+[data-testid="stMetricValue"] > div:nth-child(1) {
+  justify-content: center;
+}
+
+
+
+
+ 

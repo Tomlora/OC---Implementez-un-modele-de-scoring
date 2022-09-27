@@ -1,0 +1,11 @@
+fastapi
+numpy
+python-multipart
+uvicorn
+pandas
+requests
+scikit-learn==1.1.1
+imblearn
+json5==0.9.6
+jsonschema==4.4.0
+lightgbm
